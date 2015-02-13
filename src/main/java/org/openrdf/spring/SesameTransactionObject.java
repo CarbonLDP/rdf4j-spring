@@ -1,11 +1,15 @@
 package org.openrdf.spring;
 
+import static org.springframework.transaction.TransactionDefinition.ISOLATION_DEFAULT;
+import static org.springframework.transaction.TransactionDefinition.PROPAGATION_REQUIRED;
+import static org.springframework.transaction.TransactionDefinition.TIMEOUT_DEFAULT;
+
 import org.openrdf.repository.RepositoryConnection;
 
-import static org.springframework.transaction.TransactionDefinition.*;
-
 /**
- * <p>{@link SesameTransactionObject} holds the transaction state which consists of: </p>
+ * <p>
+ * {@link SesameTransactionObject} holds the transaction state which consists of:
+ * </p>
  * <p/>
  * <ul>
  * <li>{@link RepositoryConnection}</li>
@@ -21,98 +25,91 @@ import static org.springframework.transaction.TransactionDefinition.*;
  * @author ameingast@gmail.com
  * @see org.springframework.transaction.TransactionDefinition
  */
-class SesameTransactionObject {
-    private final RepositoryConnection repositoryConnection;
+public class SesameTransactionObject {
+	private final RepositoryConnection repositoryConnection;
 
-    private String name = "";
+	private String name = "";
 
-    private boolean existing = false;
+	private boolean existing = false;
 
-    private boolean rollbackOnly = false;
+	private boolean rollbackOnly = false;
 
-    private int timeout = TIMEOUT_DEFAULT;
+	private int timeout = TIMEOUT_DEFAULT;
 
-    private int isolationLevel = ISOLATION_DEFAULT;
+	private int isolationLevel = ISOLATION_DEFAULT;
 
-    private int propagationBehavior = PROPAGATION_REQUIRED;
+	private int propagationBehavior = PROPAGATION_REQUIRED;
 
-    private boolean readOnly = false;
+	private boolean readOnly = false;
 
-    public SesameTransactionObject(RepositoryConnection repositoryConnection) {
-        this.repositoryConnection = repositoryConnection;
-    }
+	public SesameTransactionObject(RepositoryConnection repositoryConnection) {
+		this.repositoryConnection = repositoryConnection;
+	}
 
-    @Override
-    public String toString() {
-        return "SesameTransactionObject{" +
-                "repositoryConnection=" + repositoryConnection +
-                ", name='" + name + '\'' +
-                ", existing=" + existing +
-                ", rollbackOnly=" + rollbackOnly +
-                ", timeout=" + timeout +
-                ", isolationLevel=" + isolationLevel +
-                ", propagationBehavior=" + propagationBehavior +
-                ", readOnly=" + readOnly +
-                '}';
-    }
+	@Override
+	public String toString() {
+		return "SesameTransactionObject{" + "repositoryConnection=" + repositoryConnection + ", name='" + name + '\'' + ", existing=" + existing
+				+ ", rollbackOnly=" + rollbackOnly + ", timeout=" + timeout + ", isolationLevel=" + isolationLevel + ", propagationBehavior="
+				+ propagationBehavior + ", readOnly=" + readOnly + '}';
+	}
 
-    public RepositoryConnection getRepositoryConnection() {
-        return repositoryConnection;
-    }
+	public RepositoryConnection getRepositoryConnection() {
+		return repositoryConnection;
+	}
 
-    public boolean isExisting() {
-        return existing;
-    }
+	public boolean isExisting() {
+		return existing;
+	}
 
-    public void setExisting(boolean existing) {
-        this.existing = existing;
-    }
+	public void setExisting(boolean existing) {
+		this.existing = existing;
+	}
 
-    public boolean isRollbackOnly() {
-        return rollbackOnly;
-    }
+	public boolean isRollbackOnly() {
+		return rollbackOnly;
+	}
 
-    public void setRollbackOnly(boolean rollbackOnly) {
-        this.rollbackOnly = rollbackOnly;
-    }
+	public void setRollbackOnly(boolean rollbackOnly) {
+		this.rollbackOnly = rollbackOnly;
+	}
 
-    public int getTimeout() {
-        return timeout;
-    }
+	public int getTimeout() {
+		return timeout;
+	}
 
-    public void setTimeout(int timeout) {
-        this.timeout = timeout;
-    }
+	public void setTimeout(int timeout) {
+		this.timeout = timeout;
+	}
 
-    public int getIsolationLevel() {
-        return isolationLevel;
-    }
+	public int getIsolationLevel() {
+		return isolationLevel;
+	}
 
-    public void setIsolationLevel(int isolationLevel) {
-        this.isolationLevel = isolationLevel;
-    }
+	public void setIsolationLevel(int isolationLevel) {
+		this.isolationLevel = isolationLevel;
+	}
 
-    public int getPropagationBehavior() {
-        return propagationBehavior;
-    }
+	public int getPropagationBehavior() {
+		return propagationBehavior;
+	}
 
-    public void setPropagationBehavior(int propagationBehavior) {
-        this.propagationBehavior = propagationBehavior;
-    }
+	public void setPropagationBehavior(int propagationBehavior) {
+		this.propagationBehavior = propagationBehavior;
+	}
 
-    public boolean isReadOnly() {
-        return readOnly;
-    }
+	public boolean isReadOnly() {
+		return readOnly;
+	}
 
-    public void setReadOnly(boolean readOnly) {
-        this.readOnly = readOnly;
-    }
+	public void setReadOnly(boolean readOnly) {
+		this.readOnly = readOnly;
+	}
 
-    public String getName() {
-        return name;
-    }
+	public String getName() {
+		return name;
+	}
 
-    public void setName(String name) {
-        this.name = name;
-    }
+	public void setName(String name) {
+		this.name = name;
+	}
 }
