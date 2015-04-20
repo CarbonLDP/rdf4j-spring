@@ -39,7 +39,6 @@
         <spring.version>4.1.6.RELEASE</spring.version>
         <sesame.version>${project.version}</sesame.version>
         <junit.version>4.11</junit.version>
-        <slf4j.version>1.7.7</slf4j.version>
         <cglib.version>3.1</cglib.version>
         <maven-compiler.version>3.1</maven-compiler.version>
 
@@ -107,14 +106,6 @@
             <groupId>org.openrdf.sesame</groupId>
             <artifactId>sesame-sail-memory</artifactId>
             <version>${sesame.version}</version>
-            <scope>test</scope>
-        </dependency>
-
-        <!-- logging -->
-        <dependency>
-            <groupId>org.slf4j</groupId>
-            <artifactId>slf4j-log4j12</artifactId>
-            <version>${slf4j.version}</version>
             <scope>test</scope>
         </dependency>
 
