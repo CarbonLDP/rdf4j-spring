@@ -1,11 +1,11 @@
-package org.openrdf.spring;
+package org.eclipse.rdf4j.spring;
 
-import org.openrdf.repository.RepositoryConnection;
-import org.openrdf.repository.RepositoryException;
+import org.eclipse.rdf4j.repository.RepositoryConnection;
+import org.eclipse.rdf4j.repository.RepositoryException;
 import org.springframework.beans.factory.DisposableBean;
 
 /**
- * <p>{@link SesameConnectionFactory} handles connections to a single corresponding {@link org.openrdf.repository.Repository} and manages
+ * <p>{@link SesameConnectionFactory} handles connections to a single corresponding {@link org.eclipse.rdf4j.repository.Repository} and manages
  * the transaction state (represented by {@link SesameTransactionObject}).</p>
  *
  * @author ameingast@gmail.com
@@ -42,7 +42,7 @@ public interface SesameConnectionFactory extends DisposableBean {
 
     /**
      * <p>Creates a new {@link SesameTransactionObject}, connects the created object to the corresponding {@link
-     * org.openrdf.repository.Repository} and disables auto-commit on the connection.</p>
+     * org.eclipse.rdf4j.repository.Repository} and disables auto-commit on the connection.</p>
      * <p/>
      * <p>This method should <i>not</i> be called manually, but rather by the associated {@link
      * SesameTransactionManager} which handles the current transaction.</p>
@@ -55,13 +55,13 @@ public interface SesameConnectionFactory extends DisposableBean {
 
     /**
      * <p>Ends the active transaction by either rolling-back or committing the changes to the associated
-     * {@link org.openrdf.repository.Repository} depending on the rollback-flag.</p>
+     * {@link org.eclipse.rdf4j.repository.Repository} depending on the rollback-flag.</p>
      * <p/>
      * <p>This method should <i>not</i> be called manually, but rather by the associated {@link
      * SesameTransactionManager} which handles the current transaction.</p>
      *
      * @param rollback if <code>true</code> the current transaction is rolled back, if <code>false</code> the pending
-     *                 changes on the connection are committed to the {@link org.openrdf.repository.Repository}.
+     *                 changes on the connection are committed to the {@link org.eclipse.rdf4j.repository.Repository}.
      *
      * @throws RepositoryException        if
      *                                    <ul>

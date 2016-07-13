@@ -1,6 +1,6 @@
-package org.openrdf.spring;
+package org.eclipse.rdf4j.spring;
 
-import org.openrdf.repository.RepositoryException;
+import org.eclipse.rdf4j.repository.RepositoryException;
 
 public interface SesameMultipleConnectionFactory extends SesameConnectionFactory {
 	/**

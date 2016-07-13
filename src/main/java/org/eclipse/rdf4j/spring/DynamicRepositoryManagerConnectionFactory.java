@@ -1,12 +1,12 @@
-package org.openrdf.spring;
+package org.eclipse.rdf4j.spring;
 
-import org.openrdf.repository.Repository;
-import org.openrdf.repository.RepositoryConnection;
-import org.openrdf.repository.RepositoryException;
-import org.openrdf.repository.config.RepositoryConfig;
-import org.openrdf.repository.config.RepositoryConfigException;
-import org.openrdf.repository.config.RepositoryImplConfig;
-import org.openrdf.repository.manager.RepositoryManager;
+import org.eclipse.rdf4j.repository.Repository;
+import org.eclipse.rdf4j.repository.RepositoryConnection;
+import org.eclipse.rdf4j.repository.RepositoryException;
+import org.eclipse.rdf4j.repository.config.RepositoryConfig;
+import org.eclipse.rdf4j.repository.config.RepositoryConfigException;
+import org.eclipse.rdf4j.repository.config.RepositoryImplConfig;
+import org.eclipse.rdf4j.repository.manager.RepositoryManager;
 import org.springframework.beans.factory.DisposableBean;
 
 import java.util.HashMap;
@@ -14,7 +14,7 @@ import java.util.Map;
 
 /**
  * <p>{@link RepositoryManagerConnectionFactory} handles connections to a multiple corresponding
- * {@link org.openrdf.repository.Repository}s managed by a {@link org.openrdf.repository.manager.RepositoryManager}
+ * {@link org.eclipse.rdf4j.repository.Repository}s managed by a {@link org.eclipse.rdf4j.repository.manager.RepositoryManager}
  * and manages the transaction state (represented by {@link SesameTransactionObject}).</p>
  *
  * @author ameingast@gmail.com
@@ -29,17 +29,17 @@ public class DynamicRepositoryManagerConnectionFactory implements SesameConnecti
     private final Map<String, RepositoryConnectionFactory> repositoryConnectionFactoryMap;
 
     /**
-     * <p>Creates a new {@link DynamicRepositoryManagerConnectionFactory} for the {@link org.openrdf.repository.Repository}
-     * identified by the provided {@link org.openrdf.spring.DynamicRepositoryManagerConnectionFactory.RepositoryIdProvider}
+     * <p>Creates a new {@link DynamicRepositoryManagerConnectionFactory} for the {@link org.eclipse.rdf4j.repository.Repository}
+     * identified by the provided {@link DynamicRepositoryManagerConnectionFactory.RepositoryIdProvider}
      * in the {@link RepositoryManager} <code>repositoryManager</code>.</p>
      * <p/>
      * <p>For example, a <code>repositoryIdProvider</code> that fetches IDs based on a thread-local, user-specific variable
      * can be used to create <i>dynamic</i> repositories for multiple users.</p>
      *
-     * @param repositoryManager    The {@link RepositoryManager} that holds the {@link org.openrdf.repository.Repository} to which connections
+     * @param repositoryManager    The {@link RepositoryManager} that holds the {@link org.eclipse.rdf4j.repository.Repository} to which connections
      *                             will be opened.
-     * @param repositoryIdProvider The id of the {@link org.openrdf.repository.Repository} which is used by the {@link RepositoryManager} to
-     *                             identify the {@link org.openrdf.repository.Repository} to which connections will be opened is retrieved
+     * @param repositoryIdProvider The id of the {@link org.eclipse.rdf4j.repository.Repository} which is used by the {@link RepositoryManager} to
+     *                             identify the {@link org.eclipse.rdf4j.repository.Repository} to which connections will be opened is retrieved
      *                             from via a call-back from <code>repositoryIdProvider</code>.
      */
     DynamicRepositoryManagerConnectionFactory(RepositoryManager repositoryManager,
@@ -156,7 +156,7 @@ public class DynamicRepositoryManagerConnectionFactory implements SesameConnecti
 
     /**
      * Call-back helper to provide runtime-dynamic repository-ids for
-     * {@link org.openrdf.spring.DynamicRepositoryManagerConnectionFactory}.
+     * {@link DynamicRepositoryManagerConnectionFactory}.
      */
     public interface RepositoryIdProvider {
         String getRepositoryId();

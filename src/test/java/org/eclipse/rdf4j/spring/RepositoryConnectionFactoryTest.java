@@ -1,12 +1,12 @@
-package org.openrdf.spring;
+package org.eclipse.rdf4j.spring;
 
 import org.junit.Assert;
 import org.junit.Test;
-import org.openrdf.IsolationLevel;
-import org.openrdf.IsolationLevels;
-import org.openrdf.repository.RepositoryConnection;
-import org.openrdf.repository.RepositoryException;
-import org.openrdf.repository.sail.SailRepository;
+import org.eclipse.rdf4j.IsolationLevel;
+import org.eclipse.rdf4j.IsolationLevels;
+import org.eclipse.rdf4j.repository.RepositoryConnection;
+import org.eclipse.rdf4j.repository.RepositoryException;
+import org.eclipse.rdf4j.repository.sail.SailRepository;
 import org.springframework.transaction.annotation.Isolation;
 import org.springframework.transaction.annotation.Transactional;
 

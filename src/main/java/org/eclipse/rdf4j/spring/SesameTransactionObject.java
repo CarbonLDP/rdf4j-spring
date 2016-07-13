@@ -1,10 +1,10 @@
-package org.openrdf.spring;
+package org.eclipse.rdf4j.spring;
 
 import static org.springframework.transaction.TransactionDefinition.ISOLATION_DEFAULT;
 import static org.springframework.transaction.TransactionDefinition.PROPAGATION_REQUIRED;
 import static org.springframework.transaction.TransactionDefinition.TIMEOUT_DEFAULT;
 
-import org.openrdf.repository.RepositoryConnection;
+import org.eclipse.rdf4j.repository.RepositoryConnection;
 
 /**
  * <p>
