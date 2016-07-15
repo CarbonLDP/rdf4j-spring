@@ -1,17 +1,17 @@
-package org.openrdf.spring;
+package org.eclipse.rdf4j.spring;
 
-import org.openrdf.IsolationLevel;
-import org.openrdf.IsolationLevels;
-import org.openrdf.sail.Sail;
+import org.eclipse.rdf4j.IsolationLevel;
+import org.eclipse.rdf4j.IsolationLevels;
+import org.eclipse.rdf4j.sail.Sail;
 import org.springframework.transaction.InvalidIsolationLevelException;
 import org.springframework.transaction.TransactionDefinition;
 
 /**
  * <p>Adapter to convert spring {@link TransactionDefinition} isolation levels to corresponding OpenRDF
- * {@link org.openrdf.IsolationLevel}s.</p>
+ * {@link org.eclipse.rdf4j.IsolationLevel}s.</p>
  * <p/>
- * <p>The conversion depends on the provided {@link org.openrdf.sail.Sail} and its transaction capabilities.
- * If the {@link org.openrdf.sail.Sail} is not compatible with the provided isolation level, an
+ * <p>The conversion depends on the provided {@link org.eclipse.rdf4j.sail.Sail} and its transaction capabilities.
+ * If the {@link org.eclipse.rdf4j.sail.Sail} is not compatible with the provided isolation level, an
  * {@link org.springframework.transaction.InvalidIsolationLevelException} is thrown.<p/>
  *
  * @author ameingast@gmail.com

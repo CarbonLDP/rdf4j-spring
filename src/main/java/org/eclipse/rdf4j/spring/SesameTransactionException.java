@@ -1,4 +1,4 @@
-package org.openrdf.spring;
+package org.eclipse.rdf4j.spring;
 
 import org.springframework.transaction.TransactionException;
 

@@ -23,11 +23,11 @@
         <property name="persist" value="false"/>
     </bean>
 
-    <bean id="repositoryConnectionFactory" class="org.openrdf.spring.RepositoryConnectionFactory">
+    <bean id="repositoryConnectionFactory" class="org.eclipse.rdf4j.spring.RepositoryConnectionFactory">
         <constructor-arg ref="sesameRepository"/>
     </bean>
 
-    <bean id="transactionManager" class="org.openrdf.spring.SesameTransactionManager">
+    <bean id="transactionManager" class="org.eclipse.rdf4j.spring.SesameTransactionManager">
         <constructor-arg ref="repositoryConnectionFactory"/>
     </bean>
 
@@ -36,12 +36,12 @@
         <constructor-arg value="."/>
     </bean>
 
-    <bean id="repositoryManagerConnectionFactory" class="org.openrdf.spring.RepositoryManagerConnectionFactory">
+    <bean id="repositoryManagerConnectionFactory" class="org.eclipse.rdf4j.spring.RepositoryManagerConnectionFactory">
         <constructor-arg index="0" ref="repositoryManager"/>
         <constructor-arg index="1" value="SYSTEM"/>
     </bean>
 
-    <bean id="repositoryTransactionManager" class="org.openrdf.spring.SesameTransactionManager">
+    <bean id="repositoryTransactionManager" class="org.eclipse.rdf4j.spring.SesameTransactionManager">
         <constructor-arg ref="repositoryManagerConnectionFactory"/>
     </bean>
 </beans>

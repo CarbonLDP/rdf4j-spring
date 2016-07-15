@@ -1,18 +1,16 @@
-package org.openrdf.spring;
+package org.eclipse.rdf4j.spring;
 
-import org.openrdf.IsolationLevel;
-import org.openrdf.repository.Repository;
-import org.openrdf.repository.RepositoryConnection;
-import org.openrdf.repository.RepositoryException;
-import org.openrdf.repository.sail.SailRepository;
-import org.openrdf.sail.Sail;
+import org.eclipse.rdf4j.IsolationLevel;
+import org.eclipse.rdf4j.repository.Repository;
+import org.eclipse.rdf4j.repository.RepositoryConnection;
+import org.eclipse.rdf4j.repository.RepositoryException;
+import org.eclipse.rdf4j.repository.sail.SailRepository;
+import org.eclipse.rdf4j.sail.Sail;
 import org.springframework.transaction.TransactionDefinition;
 import org.springframework.transaction.TransactionException;
 import org.springframework.transaction.TransactionSystemException;
 import org.springframework.transaction.support.AbstractPlatformTransactionManager;
 import org.springframework.transaction.support.DefaultTransactionStatus;
-
-import static org.openrdf.spring.IsolationLevelAdapter.adaptToRdfIsolation;
 
 /**
  * <p>{@link SesameTransactionManager} manages the transaction lifecycle of a {@link SesameTransactionObject}.</p>
@@ -30,7 +28,7 @@ public class SesameTransactionManager extends AbstractPlatformTransactionManager
 
     /**
      * <p>Creates a new {@link SesameTransactionManager} for the provided {@link SesameConnectionFactory} which
-     * handles connection-management to a single {@link org.openrdf.repository.Repository}.</p>
+     * handles connection-management to a single {@link org.eclipse.rdf4j.repository.Repository}.</p>
      *
      * @param sesameConnectionFactory The {@link SesameConnectionFactory} providing connections for the repository.
      */
@@ -90,7 +88,7 @@ public class SesameTransactionManager extends AbstractPlatformTransactionManager
 
         if (repository instanceof SailRepository) {
             Sail sail = ((SailRepository) repository).getSail();
-            IsolationLevel isolationLevel = adaptToRdfIsolation(sail, transactionDefinition.getIsolationLevel());
+            IsolationLevel isolationLevel = IsolationLevelAdapter.adaptToRdfIsolation(sail, transactionDefinition.getIsolationLevel());
 
             repositoryConnection.setIsolationLevel(isolationLevel);
         }
