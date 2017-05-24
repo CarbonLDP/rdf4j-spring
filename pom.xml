@@ -6,14 +6,14 @@
             http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>org.openrdf.sesame</groupId>
-    <artifactId>sesame-spring</artifactId>
+    <groupId>org.eclipse.rdf4j</groupId>
+    <artifactId>rdf4j-spring</artifactId>
 
-    <version>4.1.1</version>
+    <version>2.2.1</version>
     <name>${project.artifactId}</name>
 
     <description>
-        Spring integration for the OpenRDF/Sesame library.
+        Spring integration with the RDF4J library
     </description>
 
     <developers>
@@ -22,16 +22,20 @@
             <email>ameingast@gmail.com</email>
             <timezone>Central European Time</timezone>
         </developer>
+        <developer>
+            <name>Miguel Aragón</name>
+            <email>miguel.aragon@base22.com</email>
+        </developer>
     </developers>
 
     <scm>
-        <developerConnection>scm:git:github.com/ameingast/sesame-spring.git</developerConnection>
-        <connection>scm:git:https://github.com/ameingast/sesame-spring.git</connection>
+        <developerConnection>scm:git:github.com/CarbonLDP/rdf4j-spring.git</developerConnection>
+        <connection>scm:git:https://github.com/CarbonLDP/rdf4j-spring.git</connection>
     </scm>
 
     <issueManagement>
         <system>Github</system>
-        <url>https://github.com/ameingast/sesame-spring/issues</url>
+        <url>https://github.com/CarbonLDP/rdf4j-spring/issues</url>
     </issueManagement>
 
     <licenses>
@@ -44,6 +48,25 @@
     <prerequisites>
         <maven>3.0.0</maven>
     </prerequisites>
+
+    <properties>
+        <spring.version>4.2.5.RELEASE</spring.version>
+        <rdf4j.version>${project.version}</rdf4j.version>
+        <junit.version>4.12</junit.version>
+        <slf4j.version>1.7.18</slf4j.version>
+        <cglib.version>3.2.1</cglib.version>
+        <maven-compiler.version>3.3</maven-compiler.version>
+        <maven-clean.version>2.6.1</maven-clean.version>
+        <maven-deploy.version>2.8.2</maven-deploy.version>
+        <maven-install.version>2.5.2</maven-install.version>
+        <maven-jar.version>2.6</maven-jar.version>
+        <maven-resources.version>2.7</maven-resources.version>
+        <maven-site.version>3.4</maven-site.version>
+        <maven-surefire.version>2.18.1</maven-surefire.version>
+
+        <encoding>UTF-8</encoding>
+        <language-level>1.8</language-level>
+    </properties>
 
     <!-- Spring -->
     <dependencies>
@@ -68,62 +91,18 @@
         <dependency>
             <groupId>org.eclipse.rdf4j</groupId>
             <artifactId>rdf4j-runtime</artifactId>
-            <version>2.0M3</version>
+            <version>${rdf4j.version}</version>
         </dependency>
         <dependency>
             <groupId>org.eclipse.rdf4j</groupId>
             <artifactId>rdf4j-repository-sail</artifactId>
-            <version>2.0M3</version>
+            <version>${rdf4j.version}</version>
         </dependency>
         <dependency>
             <groupId>org.eclipse.rdf4j</groupId>
             <artifactId>rdf4j-sail-nativerdf</artifactId>
-            <version>2.0M3</version>
+            <version>${rdf4j.version}</version>
         </dependency>
-        <!--
-            <dependency>
-                <groupId>org.openrdf.sesame</groupId>
-                <artifactId>sesame-sail-api</artifactId>
-                <version>${sesame.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.openrdf.sesame</groupId>
-                <artifactId>sesame-repository-api</artifactId>
-                <version>${sesame.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.openrdf.sesame</groupId>
-                <artifactId>sesame-model</artifactId>
-                <version>${sesame.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.openrdf.sesame</groupId>
-                <artifactId>sesame-query</artifactId>
-                <version>${sesame.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.openrdf.sesame</groupId>
-                <artifactId>sesame-repository-manager</artifactId>
-                <version>${sesame.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.openrdf.sesame</groupId>
-                <artifactId>sesame-repository-sail</artifactId>
-                <version>${sesame.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.openrdf.sesame</groupId>
-                <artifactId>sesame-queryparser-sparql</artifactId>
-                <version>${sesame.version}</version>
-                <scope>test</scope>
-            </dependency>
-            <dependency>
-                <groupId>org.openrdf.sesame</groupId>
-                <artifactId>sesame-sail-memory</artifactId>
-                <version>${sesame.version}</version>
-                <scope>test</scope>
-            </dependency>
-        -->
 
         <!-- Logging -->
         <dependency>
@@ -194,23 +173,4 @@
             </plugin>
         </plugins>
     </build>
-
-    <properties>
-        <spring.version>4.2.5.RELEASE</spring.version>
-        <sesame.version>${project.version}</sesame.version>
-        <junit.version>4.12</junit.version>
-        <slf4j.version>1.7.18</slf4j.version>
-        <cglib.version>3.2.1</cglib.version>
-        <maven-compiler.version>3.3</maven-compiler.version>
-        <maven-clean.version>2.6.1</maven-clean.version>
-        <maven-deploy.version>2.8.2</maven-deploy.version>
-        <maven-install.version>2.5.2</maven-install.version>
-        <maven-jar.version>2.6</maven-jar.version>
-        <maven-resources.version>2.7</maven-resources.version>
-        <maven-site.version>3.4</maven-site.version>
-        <maven-surefire.version>2.18.1</maven-surefire.version>
-
-        <encoding>UTF-8</encoding>
-        <language-level>1.8</language-level>
-    </properties>
 </project>
