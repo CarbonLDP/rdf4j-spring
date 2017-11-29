@@ -9,12 +9,10 @@
     <groupId>org.eclipse.rdf4j</groupId>
     <artifactId>rdf4j-spring</artifactId>
 
-    <version>2.2.1</version>
+    <version>2.2.4</version>
     <name>${project.artifactId}</name>
 
-    <description>
-        Spring integration with the RDF4J library
-    </description>
+    <description>Spring integration with the RDF4J library</description>
 
     <developers>
         <developer>
@@ -50,11 +48,9 @@
     </prerequisites>
 
     <properties>
-        <spring.version>4.2.5.RELEASE</spring.version>
-        <rdf4j.version>${project.version}</rdf4j.version>
-        <junit.version>4.12</junit.version>
-        <slf4j.version>1.7.18</slf4j.version>
-        <cglib.version>3.2.1</cglib.version>
+        <encoding>UTF-8</encoding>
+        <language-level>1.8</language-level>
+
         <maven-compiler.version>3.3</maven-compiler.version>
         <maven-clean.version>2.6.1</maven-clean.version>
         <maven-deploy.version>2.8.2</maven-deploy.version>
@@ -64,8 +60,11 @@
         <maven-site.version>3.4</maven-site.version>
         <maven-surefire.version>2.18.1</maven-surefire.version>
 
-        <encoding>UTF-8</encoding>
-        <language-level>1.8</language-level>
+        <spring.version>4.2.5.RELEASE</spring.version>
+        <rdf4j.version>${project.version}</rdf4j.version>
+        <junit.version>4.12</junit.version>
+        <slf4j.version>1.7.18</slf4j.version>
+        <cglib.version>3.2.1</cglib.version>
     </properties>
 
     <!-- Spring -->
@@ -79,12 +78,6 @@
             <groupId>org.springframework</groupId>
             <artifactId>spring-tx</artifactId>
             <version>${spring.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-test</artifactId>
-            <version>${spring.version}</version>
-            <scope>test</scope>
         </dependency>
 
         <!-- Sesame -->
@@ -107,25 +100,36 @@
         <!-- Logging -->
         <dependency>
             <groupId>org.slf4j</groupId>
-            <artifactId>slf4j-log4j12</artifactId>
+            <artifactId>slf4j-api</artifactId>
             <version>${slf4j.version}</version>
         </dependency>
 
-        <!-- Unit Testing-->
+        <!-- === Testing === -->
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-simple</artifactId>
+            <version>${slf4j.version}</version>
+            <scope>test</scope>
+        </dependency>
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
             <version>${junit.version}</version>
             <scope>test</scope>
         </dependency>
-
-        <!-- Misc -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-test</artifactId>
+            <version>${spring.version}</version>
+            <scope>test</scope>
+        </dependency>
         <dependency>
             <groupId>cglib</groupId>
             <artifactId>cglib</artifactId>
             <version>${cglib.version}</version>
             <scope>test</scope>
         </dependency>
+        <!-- === End: Testing === -->
     </dependencies>
 
     <build>
