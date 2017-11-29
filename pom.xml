@@ -60,7 +60,7 @@
         <maven-site.version>3.4</maven-site.version>
         <maven-surefire.version>2.18.1</maven-surefire.version>
 
-        <spring.version>4.2.5.RELEASE</spring.version>
+        <spring.version>5.0.2.RELEASE</spring.version>
         <rdf4j.version>${project.version}</rdf4j.version>
         <junit.version>4.12</junit.version>
         <slf4j.version>1.7.18</slf4j.version>
