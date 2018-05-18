@@ -9,7 +9,7 @@
     <groupId>org.eclipse.rdf4j</groupId>
     <artifactId>rdf4j-spring</artifactId>
 
-    <version>2.2.4</version>
+    <version>2.3.2</version>
     <name>${project.artifactId}</name>
 
     <description>Spring integration with the RDF4J library</description>
@@ -60,7 +60,7 @@
         <maven-site.version>3.4</maven-site.version>
         <maven-surefire.version>2.18.1</maven-surefire.version>
 
-        <spring.version>5.0.2.RELEASE</spring.version>
+        <spring.version>5.0.6.RELEASE</spring.version>
         <rdf4j.version>${project.version}</rdf4j.version>
         <junit.version>4.12</junit.version>
         <slf4j.version>1.7.18</slf4j.version>
@@ -73,28 +73,33 @@
             <groupId>org.springframework</groupId>
             <artifactId>spring-context</artifactId>
             <version>${spring.version}</version>
+            <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-tx</artifactId>
             <version>${spring.version}</version>
+            <scope>provided</scope>
         </dependency>
 
-        <!-- Sesame -->
+        <!-- RDF4J -->
         <dependency>
             <groupId>org.eclipse.rdf4j</groupId>
             <artifactId>rdf4j-runtime</artifactId>
             <version>${rdf4j.version}</version>
+            <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>org.eclipse.rdf4j</groupId>
             <artifactId>rdf4j-repository-sail</artifactId>
             <version>${rdf4j.version}</version>
+            <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>org.eclipse.rdf4j</groupId>
             <artifactId>rdf4j-sail-nativerdf</artifactId>
             <version>${rdf4j.version}</version>
+            <scope>provided</scope>
         </dependency>
 
         <!-- Logging -->
