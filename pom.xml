@@ -9,7 +9,7 @@
     <groupId>org.eclipse.rdf4j</groupId>
     <artifactId>rdf4j-spring</artifactId>
 
-    <version>3.0.0</version>
+    <version>3.4.3</version>
     <name>${project.artifactId}</name>
 
     <description>Spring integration with the RDF4J library</description>
@@ -88,6 +88,7 @@
             <groupId>org.eclipse.rdf4j</groupId>
             <artifactId>rdf4j-runtime</artifactId>
             <version>${rdf4j.version}</version>
+            <type>pom</type>
             <scope>provided</scope>
         </dependency>
         <dependency>
