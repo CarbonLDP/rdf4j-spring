@@ -9,7 +9,7 @@
     <groupId>org.eclipse.rdf4j</groupId>
     <artifactId>rdf4j-spring</artifactId>
 
-    <version>3.4.3</version>
+    <version>3.7.1</version>
     <name>${project.artifactId}</name>
 
     <description>Spring integration with the RDF4J library</description>
