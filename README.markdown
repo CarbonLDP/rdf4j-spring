@@ -19,20 +19,20 @@ You should use this approach, if you only deal with a single repository.
 <tx:annotation-driven transaction-manager="transactionManager"/>
 
 <!-- Sesame repository configuration -->
-<bean id="sesameRepository" class="org.openrdf.repository.sail.SailRepository" init-method="initialize">
+<bean id="sesameRepository" class="org.eclipse.rdf4j.repository.sail.SailRepository" init-method="initialize">
     <constructor-arg ref="memoryStore"/>
 </bean>
 
-<bean id="memoryStore" class="org.openrdf.sail.memory.MemoryStore">
+<bean id="memoryStore" class="org.eclipse.rdf4j.sail.memory.MemoryStore">
     <property name="persist" value="false"/>
 </bean>
 
 <!-- Transaction manager configuration -->
-<bean id="sesameConnectionFactory" class="org.openrdf.spring.RepositoryConnectionFactory">
+<bean id="sesameConnectionFactory" class="org.eclipse.rdf4j.spring.RepositoryConnectionFactory">
     <constructor-arg ref="sesameRepository"/>
 </bean>
 
-<bean id="transactionManager" class="org.openrdf.spring.SesameTransactionManager">
+<bean id="transactionManager" class="org.eclipse.rdf4j.spring.SesameTransactionManager">
     <constructor-arg ref="sesameConnectionFactory"/>
 </bean>
 ```
@@ -71,15 +71,15 @@ and supply a repository-id either through the Spring configuration, or exchange 
 
 ```xml
 <context:annotation-config/>
-<context:component-scan base-package="org.openrdf.spring"/>
+<context:component-scan base-package="org.eclipse.rdf4j.spring"/>
 <tx:annotation-driven transaction-manager="transactionManager"/>
 
-<bean id="sesameConnectionFactory" class="org.openrdf.spring.RepositoryManagerConnectionFactory">
+<bean id="sesameConnectionFactory" class="org.eclipse.rdf4j.spring.RepositoryManagerConnectionFactory">
     <constructor-arg ref="repositoryManager"/>
     <property name="repositoryId" value="test-id"/>
 </bean>
 
-<bean id="repositoryManager" class="org.openrdf.repository.manager.LocalRepositoryManager"
+<bean id="repositoryManager" class="org.eclipse.rdf4j.repository.manager.LocalRepositoryManager"
       init-method="initialize" destroy-method="shutDown">
     <constructor-arg>
         <bean class="java.io.File">
@@ -88,7 +88,7 @@ and supply a repository-id either through the Spring configuration, or exchange 
     </constructor-arg>
 </bean>
 
-<bean id="transactionManager" class="org.openrdf.spring.SesameTransactionManager">
+<bean id="transactionManager" class="org.eclipse.rdf4j.spring.SesameTransactionManager">
     <constructor-arg ref="repositoryManagerConnectionFactory"/>
 </bean>
 ```
@@ -100,11 +100,11 @@ access the repository through them:
 
 ```xml
 <context:annotation-config/>
-<context:component-scan base-package="org.openrdf.spring"/>
+<context:component-scan base-package="org.eclipse.rdf4j.spring"/>
 <tx:annotation-driven transaction-manager="test"/>
 <tx:annotation-driven transaction-manager="data"/>
 
-<bean id="repositoryManager" class="org.openrdf.repository.manager.LocalRepositoryManager"
+<bean id="repositoryManager" class="org.eclipse.rdf4j.repository.manager.LocalRepositoryManager"
       init-method="initialize" destroy-method="shutDown">
     <constructor-arg>
         <bean class="java.io.File">
@@ -113,21 +113,21 @@ access the repository through them:
     </constructor-arg>
 </bean>
 
-<bean name="testConnectionFactory" class="org.openrdf.spring.RepositoryManagerConnectionFactory">
+<bean name="testConnectionFactory" class="org.eclipse.rdf4j.spring.RepositoryManagerConnectionFactory">
     <constructor-arg name="repositoryManager" ref="repositoryManager"/>
     <constructor-arg name="repositoryId" value="test"/>
 </bean>
 
-<bean name="dataConnectionFactory" class="org.openrdf.spring.RepositoryManagerConnectionFactory">
+<bean name="dataConnectionFactory" class="org.eclipse.rdf4j.spring.RepositoryManagerConnectionFactory">
     <constructor-arg name="repositoryManager" ref="repositoryManager"/>
     <constructor-arg name="repositoryId" value="data"/>
 </bean>
 
-<bean id="test" class="org.openrdf.spring.SesameTransactionManager">
+<bean id="test" class="org.eclipse.rdf4j.spring.SesameTransactionManager">
     <constructor-arg ref="testConnectionFactory"/>
 </bean>
 
-<bean id="data" class="org.openrdf.spring.SesameTransactionManager">
+<bean id="data" class="org.eclipse.rdf4j.spring.SesameTransactionManager">
     <constructor-arg ref="dataConnectionFactory"/>
 </bean>
 ```
